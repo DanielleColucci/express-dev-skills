@@ -32,7 +32,7 @@ function create(req, res) {
 function show(req, res) {
   Skill.findById(req.params.id)
   .then(skill => {
-    res.render('/skills/show', {
+    res.render('skills/show', {
       skill: skill
     })
   })
