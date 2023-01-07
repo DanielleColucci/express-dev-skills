@@ -30,6 +30,12 @@ app.use(
   )
 )
 
+app.use(function(req, res, next) {
+  req.time = new Date().toLocaleTimeString()
+  req.date = new Date().toLocaleDateString()
+  next()
+})
+
 // mounted routers
 app.use('/', indexRouter)
 app.use('/skills', skillsRouter)
