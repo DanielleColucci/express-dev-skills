@@ -68,11 +68,25 @@ function edit(req, res) {
   })
 }
 
+function update(req, res) {
+  // handle checkbox 
+  req.body.mastered = !!req.body.mastered
+  Skill.findByIdAndUpdate(req.params.id, req.body, {new: true})
+  .then(skill => {
+    res.redirect(`/skills/${skill._id}`)
+  })
+  .catch(error => {
+    console.log(error)
+    res.redirect('/skills')
+  })
+}
+
 export {
   index,
   newSkill as new, 
   create, 
   show,
   deleteSkill as delete, 
-  edit
+  edit, 
+  update
 }

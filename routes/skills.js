@@ -21,6 +21,9 @@ router.post('/', skillsCtrl.create)
 // DELETE localhost:3000/skills/:id
 router.delete('/:id', skillsCtrl.delete)
 
+// PUT localhost:3000/skills/:id
+router.put('/:id', skillsCtrl.update)
+
 export {
   router
 }
